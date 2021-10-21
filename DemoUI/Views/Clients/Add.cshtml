@@ -1,13 +1,90 @@
-﻿
+﻿@model Client
+@{
+    ViewBag.Title = "Add Client";
+}
+
 <div class="card">
-    <div class="card-header">
-        New client
-    </div>
+    @*<img class="card-img-top" src="..." alt="Card image cap">*@
     <div class="card-body">
+        <div class="row">
+            <div class="col-10">
+                <h5 class="card-title font-weight-bold text-primary">Adding New Client</h5>
+            </div>
+            <div class="col-2">
+                <div class="custom-switch custom-switch-label-yesno">
+                    <input class="custom-switch-input" id="example_3" type="checkbox">
+                    <label class="custom-switch-btn" for="example_3"></label>
+                    @*<div class="custom-switch-content-checked">
+                        <span class="text-success">I'm checked</span>
+                    </div>
+                    <div class="custom-switch-content-unchecked">
+                        <span class="text-danger">I'm unchecked</span>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+        <hr />
+        <form asp-action="AddClient" method="post" autocomplete="off">
 
-        <form asp-controller="Demo" asp-action="Register" method="post">
-            
+            <div class="row">
+
+                <div class="col-md-4">
+                    <label asp-for="Firstname" class="form-label"></label>
+                    <input asp-for="Firstname" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Lastname" class="form-label"></label>
+                    <input asp-for="Lastname" class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <label asp-for="DOB" class="form-label"></label>
+                    <input asp-for="DOB" class="form-control" />
+                </div>
+
+                <div class="col-md-2">
+                    <label asp-for="Gender" class="form-label"></label>
+                    <select name="cars" id="cars" class="form-control">
+                        @foreach (var gender in ViewBag.Genders)
+                        {
+                            <option value="@gender">@gender</option>
+                        }
+
+                    </select>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col">
+                    <label asp-for="Address" class="form-label"></label>
+                    <textarea asp-for="Address" class="form-control" rows="3" wrap="hard"></textarea>
+                </div>
+            </div>
+
+
+            <br />
+            <div class="row">
+                <div class="col">
+                    <label asp-for="Phone" class="form-label"></label>
+                    <input asp-for="Phone" class="form-control">
+                </div>
+            </div>
+
+            <br />
+
+
+
+            <hr />
+
+            <div class="row">
+                <div class="col text-right">
+                    <button type="submit" class="btn btn-success font-weight-bold">Add new Client</button>
+                </div>
+            </div>
+
+
         </form>
-
     </div>
 </div>
+

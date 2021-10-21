@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@ViewData["Title"] - Gaia</title>
+    @*<title>@ViewData["Title"] - By Omega</title>*@
+    <title>@ViewBag.Title - By Omega</title>
 
     <!-- Custom fonts for this template-->
     <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -18,7 +19,15 @@
     <!-- Custom styles for this template-->
     <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
 
+    @* Custom toggle button style sheet *@
+    <link href="~/Lib/CustomSwitch/dist/css/component-custom-switch.css" rel="stylesheet">
+
     @* custom style for datatables *@
+    <link rel="stylesheet" type="text/css" href="~/Lib/DataTables/DataTables-1.11.3/css/dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Lib/DataTables/DataTables-1.11.3/css/jquery.dataTables.min.css" />
+
+    
+
 
 </head>
 
@@ -95,11 +104,15 @@
 
     <!-- Page level custom scripts -->
     @*<script src="~/js/demo/chart-area-demo.js"></script>
-    <script src="~/js/demo/chart-pie-demo.js"></script>*@
+        <script src="~/js/demo/chart-pie-demo.js"></script>*@
 
 
     @* datables scripts *@
+    <script type="text/javascript" src="~/Lib/DataTables/DataTables-1.11.3/js/datatables.min.js"></script>
+    <script type="text/javascript" src="~/Lib/DataTables/DataTables-1.11.3/js/jquery.dataTables.min.js"></script>
 
+
+    @RenderSection("Scripts", required: false)
 
 </body>
 

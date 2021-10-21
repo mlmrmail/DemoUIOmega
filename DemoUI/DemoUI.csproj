@@ -9,4 +9,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.19" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DemoUIOmega.Entities\DemoUIOmega.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,8 +1,49 @@
-﻿@{
-    ViewData["Title"] = "Client Index";
+﻿@model List<Client>
+
+@{
+    ViewBag.Title = "Client Index";
 }
 
 
 <div>
-    Client listing
+    <h2>Client listing</h2>
 </div>
+<hr />
+
+
+<div class="row">
+    <div class="col">
+        <table id="example" class="display" style="width:90%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Office</th>
+                    <th>Age</th>
+                    <th>Start date</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#example').DataTable(
+
+
+            );
+        });
+
+
+    </script>
+
+   
+
+}
