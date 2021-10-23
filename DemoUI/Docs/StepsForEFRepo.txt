@@ -1,1 +1,32 @@
-﻿
+﻿1 - Create a class deriving from dbcontext like this : 
+	public class HrContext : DbContext
+	{
+		public HrContext(DbContextOptions<HrContext> options) : base(options)
+		{
+		}
+		public DbSet<Person> Candidates { get; set; }
+	}
+
+2 - In the statrtup file - the ConfigureServices methode
+	services.AddDbContext<HrContext>(options => options.UseSqlServer("DataSource"));
+	(note you might need to add the package of sqlserver using nuget)
+
+3 - then in the controller you can use the dependency injection
+
+public class HrController : Controller
+{
+	private HrContext _context;
+
+	public HrController(HrContext context)
+	{
+		_context = context;
+	}
+
+	public IActionResult Index()
+	{
+		return View(_context.Candidates.ToList());
+	}
+}
+
+
+4 - There you go, your tuen now :) ... Good luck !
