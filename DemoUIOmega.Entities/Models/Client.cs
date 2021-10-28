@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace DemoUIOmega.Entities.Models
 {
+    [Table("OmegaClients")]
     public class Client
     {
+        [Key]
         public int ClientId { get; set; }
         [DisplayName("Client First Name")]
         public string Firstname { get; set; }
