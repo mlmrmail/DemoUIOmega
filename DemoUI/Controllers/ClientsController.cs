@@ -38,7 +38,13 @@ namespace DemoUI.Controllers
         [HttpPost]
         public IActionResult AddClient([FromForm]Client clientData)
         {
-            return Ok();
+            var genders = Enum.GetNames(typeof(GenderType));
+            ViewBag.Genders = genders;
+
+            if (ModelState.IsValid)
+                return Ok();
+
+            return View("Add", clientData);
         }
 
     }

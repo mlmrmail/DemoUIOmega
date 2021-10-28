@@ -39,6 +39,7 @@
                 <div class="col-md-2">
                     <label asp-for="DOB" class="form-label"></label>
                     <input asp-for="DOB" class="form-control" />
+                    <span asp-validation-for="DOB"></span>
                 </div>
 
                 <div class="col-md-2">
@@ -66,8 +67,9 @@
             <br />
             <div class="row">
                 <div class="col">
-                    <label asp-for="Phone" class="form-label"></label>
-                    <input asp-for="Phone" class="form-control">
+                    @*<label asp-for="Phone" class="form-label"></label>*@
+                    @Html.DisplayFor(m => m.Phone)
+                    <span asp-validation-for="Phone"></span>
                 </div>
             </div>
 
