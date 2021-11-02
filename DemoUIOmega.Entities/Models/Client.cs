@@ -11,18 +11,23 @@ namespace DemoUIOmega.Entities.Models
     public class Client
     {
         [Key]
-        public int ClientId { get; set; }
+        public int Id { get; set; }
         [DisplayName("Client First Name")]
+        [Required]
         public string Firstname { get; set; }
         [DisplayName("Client Last Name")]
+        [Required]
         public string Lastname { get; set; }
         [DataType(DataType.Date)]
+        [Required]
         public DateTime DOB { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
+        [Required]
+        public string Email { get; set; }
         public GenderType Gender { get; set; }
 
-        public List<Order> Orders { get; set; }
+        //public List<Order> Orders { get; set; }
 
         public bool Active { get; set; }
 

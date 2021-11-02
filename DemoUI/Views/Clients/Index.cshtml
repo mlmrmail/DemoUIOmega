@@ -1,33 +1,46 @@
 ﻿@model List<Client>
 
 @{
+    Layout = "_CustomLayout";
     ViewBag.Title = "Client Index";
 }
 
 
-<div>
-    <h2>Client listing</h2>
-</div>
-<hr />
+<div class="card">
+    <div class="card-header">
+        Clients Listing ...
+    </div>
+    <div class="card-body">
 
+        <div class="row text-dark">
+            <div class="col">
+                <table id="example" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Id</th>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>DOB</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                        </tr>
+                    </thead>
 
-<div class="row">
-    <div class="col">
-        <table id="example" class="display" style="width:90%">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                </tr>
-            </thead>
+                </table>
+            </div>
+        </div>
 
-        </table>
     </div>
 </div>
+
+
+
+
+
+
 
 
 @section Scripts
@@ -35,10 +48,66 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            $('#example').DataTable(
+            console.log(@Html.Raw(Json.Serialize(Model)));
+            table = $('#example').dataTable({
+                "dom": 'lBfrtip',
+                ordering: true,
+                buttons: [
+                    'csv', 'excel'
+                ],
+                "responsive": true,
+                "order": [[1, 'asc']],
+                "columnDefs": [
+                    { "orderable": false, "targets": [0, 2] },
+                    // { "width": "5%", "targets": [0] },
+                    // { "width": "1%", "targets": [5] },
+                    { "visible": false, "targets": [1] }, // 8
+                    //{ "width": "4%", "targets": [6, 7] },
+                    //{ "width": "8%", "targets": [5] },
+                ],
+                //"deferRender": true,
+                //"processing": true,
+                "data": @Html.Raw(Json.Serialize(Model)),
 
+                columns: [
+                    {
+                        "data": null,
+                        "class": "text-center",
+                        "render": function () {
+                            return '<i class="fas fa-user-tie"></i>';
+                        }
+                    },
+                    {
+                        "data": "id",
+                        "class": "text-center"
+                    },
+                    {
+                        "data": "firstname",
+                    },
+                    {
+                        "data": "lastname",
+                    },
+                    {
+                        "data": "dob"
+                        //render: function (data) {
+                        //    return moment(data).format('MMMM Do YYYY');
+                        //}
+                    },
+                    {
+                        "data": "address",
+                    },
+                    {
+                        "data": "phone",
+                    },
+                    {
+                        "data": "email",
+                    },
+                    {
+                        "data": "gender",
+                    }
+                ],
+            });
 
-            );
         });
 
 

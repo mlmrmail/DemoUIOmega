@@ -1,6 +1,8 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace DemoUI.Models
+namespace DemoUIOmega.Entities.Models.Errors
 {
     public class ErrorViewModel
     {

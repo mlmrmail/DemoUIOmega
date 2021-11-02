@@ -1,4 +1,5 @@
-﻿using DemoUI.Models;
+﻿
+using DemoUIOmega.Entities.Models.Errors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
